@@ -18,20 +18,21 @@ namespace projetoFormsPaisEstadoCidade
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Salvar();
+            Sair();
         }
-        protected virtual void Salvar()
+        public virtual void Salvar()
         { 
         }
-        protected virtual void CarregaTxt()
+        public virtual void CarregaTxt()
         { 
         }
-        protected virtual void LimpaTxt()
+        public virtual void LimpaTxt()
         { 
         }
-        protected virtual void BloqueiaTxt()
+        public virtual void BloqueiaTxt()
         { 
         }
-        protected virtual void DesbloqueiaTxt()
+        public virtual void DesbloqueiaTxt()
         { 
         }
 

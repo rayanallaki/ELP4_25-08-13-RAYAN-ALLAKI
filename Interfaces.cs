@@ -20,6 +20,7 @@ namespace projetoFormsPaisEstadoCidade
             oFrmConsPaises = new FrmConsPaises();
             oFrmConsEstados = new frmConsEstados();
             oFrmConsCidade = new frmConsultaCidade();
+
             oFrmCadPaises = new FrmCadPais();
             oFrmCadEstados = new FrmCadEstados();
             oFrmCadCidades = new FrmCadCidades();
@@ -27,6 +28,9 @@ namespace projetoFormsPaisEstadoCidade
             oFrmConsPaises.setFrmCdastro(oFrmCadPaises);
             oFrmConsEstados.setFrmCdastro(oFrmCadEstados);
             oFrmConsCidade.setFrmCdastro(oFrmCadCidades);
+
+            oFrmCadEstados.setFrmConsPaises(oFrmConsPaises);
+            oFrmCadCidades.setFrmConsEstados(oFrmConsEstados);
         }
 
         public void PecaPaises(object obj, object ctrl)

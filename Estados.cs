@@ -13,18 +13,18 @@ namespace projetoFormsPaisEstadoCidade
         protected Paises oPais;
         public Estados() : base()
         {
-            estado = string.Empty;
-            uf =     string.Empty;
-            oPais =  new Paises();
+            estado = "";
+            uf = string.Empty;
+            oPais = new Paises();
         }
-        public Estados(int codigo, string estado, DateTime datcad, DateTime ultalt, string uf, Paises oPais) : base(codigo, datcad, ultalt)
+        public Estados(int codigo, DateTime datcad, DateTime ultalt, string estado, string uf, Paises oPais) : base(codigo, datcad, ultalt)
         {
             this.estado = estado;
-            this.uf =     uf;
-            this.oPais =  oPais;
+            this.uf = uf;
+            this.oPais = oPais;
         }
         public string Estado
-        { 
+        {
             get => estado;
             set => estado = value;
         }
@@ -32,6 +32,11 @@ namespace projetoFormsPaisEstadoCidade
         {
             get => uf;
             set => uf = value;
+        }
+        public Paises OPais
+        {
+            get => oPais;
+            set => oPais = value;
         }
     }
 }

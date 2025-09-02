@@ -19,7 +19,7 @@ namespace projetoFormsPaisEstadoCidade
         Estados oEstado1 = new Estados();
         Cidades oCidade = new Cidades();
         Cidades oCidade1 = new Cidades();
-        Controller aCtrl;
+        Controller aCtrl = new Controller();
 
         public FrmPrincipal()
         {

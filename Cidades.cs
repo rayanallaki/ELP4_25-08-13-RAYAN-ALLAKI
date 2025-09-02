@@ -34,5 +34,10 @@ namespace projetoFormsPaisEstadoCidade
             get => ddd;
             set => ddd = value;
         }
+        public Estados OEstado
+        {
+            get => oEstado;
+            set => oEstado = value;
+        }
     }
 }

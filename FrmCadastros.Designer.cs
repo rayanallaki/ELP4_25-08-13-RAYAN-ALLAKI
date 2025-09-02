@@ -146,6 +146,6 @@
         private System.Windows.Forms.Label lblCad;
         private System.Windows.Forms.Label lblUltAlt;
         private System.Windows.Forms.Label lblUsuario;
-        protected System.Windows.Forms.Button btnSalvar;
+        public System.Windows.Forms.Button btnSalvar;
     }
 }

@@ -20,16 +20,30 @@ namespace projetoFormsPaisEstadoCidade
         protected override void Incluir()
         {
             oFrmCadPais.ConhecaObj(oPais, oCtrl);
+            oFrmCadPais.LimpaTxt();
+            oFrmCadPais.CarregaTxt();
             oFrmCadPais.ShowDialog();
         }
         protected override void Excluir()
         {
+            string aux;
             oFrmCadPais.ConhecaObj(oPais, oCtrl);
+
+            oFrmCadPais.LimpaTxt();
+            oFrmCadPais.CarregaTxt();
+            oFrmCadPais.BloqueiaTxt();
+            aux = oFrmCadPais.btnSalvar.Text;
+            oFrmCadPais.btnSalvar.Text = "Excluir";
             oFrmCadPais.ShowDialog();
+            oFrmCadPais.DesbloqueiaTxt();
+            oFrmCadPais.btnSalvar.Text = aux;
         }
         protected override void Alterar()
         {
+            
             oFrmCadPais.ConhecaObj(oPais, oCtrl);
+            oFrmCadPais.LimpaTxt();
+            oFrmCadPais.CarregaTxt();
             oFrmCadPais.ShowDialog(); 
         }
         protected override void Pesquisar()
@@ -52,11 +66,6 @@ namespace projetoFormsPaisEstadoCidade
             { 
                 oCtrl = (Controller)ctrl;
             }
-        }
-
-        private void FrmConsPaises_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

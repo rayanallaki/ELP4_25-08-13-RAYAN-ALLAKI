@@ -12,51 +12,84 @@ namespace projetoFormsPaisEstadoCidade
     {
         Estados oEstado;
         Controller aCtrl;
-      //Paises oPais;
+        //Paises oPais;
+        FrmConsPaises oFrmConsPaises;
         public FrmCadEstados()
         {
             InitializeComponent();
+            oEstado = new Estados();
+            oFrmConsPaises = new FrmConsPaises();
         }
-
-        protected override void Salvar()
+        public void setFrmConsPaises(object obj)
         {
-            oEstado.Codigo = Convert.ToInt32(txtcodigo.Text);
-            oEstado.Estado = txtEstado.Text;
-            oEstado.UF =     txtUf.Text;
-        }
-        protected override void CarregaTxt()
-        {
-            this.txtcodigo.Text = Convert.ToString(oEstado.Codigo);
-            this.txtEstado.Text = oEstado.Estado;
-            this.txtUf.Text =     oEstado.UF;
-        }
-        protected override void LimpaTxt()
-        {
-            this.txtcodigo.Text = "0";
-            this.txtEstado.Clear();
-            this.txtUf.Clear();
-        }
-        protected override void BloqueiaTxt()
-        {
-            this.txtEstado.Enabled = false;
-            this.txtUf.Enabled =     false;
-        }
-        protected override void DesbloqueiaTxt()
-        {
-            this.txtEstado.Enabled = true;
-            this.txtUf.Enabled =     true;
+            if (obj != null)
+            {
+                oFrmConsPaises = (FrmConsPaises)obj;
+            }
         }
         public override void ConhecaObj(object obj, object ctrl)
         {
             if (obj != null)
+            {
                 oEstado = (Estados)obj;
+            }
             if (ctrl != null)
+            {
                 aCtrl = (Controller)ctrl;
+            }
         }
+        public override void Salvar()
+        {
+            oEstado.Codigo = Convert.ToInt32(txtcodigo.Text);
+            oEstado.Estado =     txtEstado.Text;
+            oEstado.OPais.Pais = txtPais.Text;
+            oEstado.UF =         txtUf.Text;
+        }
+        public override void CarregaTxt()
+        {
+            this.txtcodigo.Text = Convert.ToString(oEstado.Codigo);
+            this.txtEstado.Text = oEstado.Estado;
+            this.txtPais.Text =   oEstado.OPais.Pais;
+            this.txtUf.Text =     oEstado.UF;
+        }
+        public override void LimpaTxt()
+        {
+            this.txtcodigo.Text = "0";
+            this.txtPais.Clear();
+            this.txtEstado.Clear();
+            this.txtUf.Clear();
+        }
+        public override void BloqueiaTxt()
+        {
+            this.txtPais.Enabled = false;
+            this.txtEstado.Enabled = false;
+            this.txtUf.Enabled =     false;
+            this.txtCodigoPais.Enabled = false;
+            this.txtcodigo.Enabled = false;
+        }
+        public override void DesbloqueiaTxt()
+        {
+            this.txtPais.Enabled = true;
+            this.txtEstado.Enabled = true;
+            this.txtUf.Enabled =     true;
+        }
+        
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string btnSair = oFrmConsPaises.btnSair.Text;
+            oFrmConsPaises.btnSair.Text = "Selecionar";
+            oFrmConsPaises.ConhecaObj(oEstado.OPais, aCtrl);
+            oFrmConsPaises.ShowDialog();
+            this.txtCodigoPais.Text = Convert.ToString(oEstado.OPais.Codigo);
+            this.txtPais.Text = oEstado.OPais.Pais.ToString();
+            oFrmConsPaises.btnSair.Text = btnSair; 
         }
     }
 }

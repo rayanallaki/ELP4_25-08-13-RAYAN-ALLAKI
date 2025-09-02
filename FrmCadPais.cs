@@ -16,7 +16,7 @@ namespace projetoFormsPaisEstadoCidade
         {
             InitializeComponent();
         }
-        protected override void Salvar()
+        public override void Salvar()
         {
             //if (MessageDlg("Confirma? S/N") == "S")
             {
@@ -28,7 +28,7 @@ namespace projetoFormsPaisEstadoCidade
             }
             
         }
-        protected override void CarregaTxt()
+        public override void CarregaTxt()
         {
             this.txtcodigo.Text = Convert.ToString(oPais.Codigo);
             this.txtPais.Text =   oPais.Pais;
@@ -36,7 +36,7 @@ namespace projetoFormsPaisEstadoCidade
             this.txtDdi.Text =    oPais.Ddi;
             this.txtMoeda.Text =  oPais.Moeda;
         }
-        protected override void LimpaTxt()
+        public override void LimpaTxt()
         {
             this.txtcodigo.Text = "0";
             this.txtPais.Clear();
@@ -44,14 +44,15 @@ namespace projetoFormsPaisEstadoCidade
             this.txtDdi.Clear();
             this.txtMoeda.Clear();
         }
-        protected override void BloqueiaTxt()
+        public override void BloqueiaTxt()
         {
-            this.txtPais.Enabled =  false;
-            this.txtSigla.Enabled = false;
-            this.txtDdi.Enabled =   false;
-            this.txtMoeda.Enabled = false;
+            this.txtPais.Enabled =   false;
+            this.txtSigla.Enabled =  false;
+            this.txtDdi.Enabled =    false;
+            this.txtMoeda.Enabled =  false;
+            this.txtcodigo.Enabled = false;
         }
-        protected override void DesbloqueiaTxt()
+        public override void DesbloqueiaTxt()
         {
             this.txtPais.Enabled =  true;
             this.txtSigla.Enabled = true;

@@ -34,7 +34,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(713, 387);
+            this.btnSair.Location = new System.Drawing.Point(713, 390);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 0;
@@ -48,6 +48,7 @@
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(84, 20);
             this.txtcodigo.TabIndex = 1;
+            this.txtcodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Frm
             // 
@@ -66,6 +67,6 @@
 
         #endregion
         protected System.Windows.Forms.TextBox txtcodigo;
-        protected System.Windows.Forms.Button btnSair;
+        public System.Windows.Forms.Button btnSair;
     }
 }

@@ -23,14 +23,30 @@ namespace projetoFormsPaisEstadoCidade
         }
         protected override void Incluir()
         {
+            oFrmCadCidades.ConhecaObj(oCidade, aCtrl);
+            oFrmCadCidades.LimpaTxt();
+            oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.ShowDialog();
         }
         protected override void Excluir()
         {
+            string aux;
+            oFrmCadCidades.ConhecaObj(oCidade, aCtrl);
+
+            oFrmCadCidades.LimpaTxt();
+            oFrmCadCidades.CarregaTxt();
+            oFrmCadCidades.BloqueiaTxt();
+            aux = oFrmCadCidades.btnSalvar.Text;
+            oFrmCadCidades.btnSalvar.Text = "Excluir";
             oFrmCadCidades.ShowDialog();
+            oFrmCadCidades.DesbloqueiaTxt();
+            oFrmCadCidades.btnSalvar.Text = aux;
         }
         protected override void Alterar()
         {
+            oFrmCadCidades.ConhecaObj(oCidade, aCtrl);
+            oFrmCadCidades.LimpaTxt();
+            oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.ShowDialog();
         }
         protected override void Pesquisar()

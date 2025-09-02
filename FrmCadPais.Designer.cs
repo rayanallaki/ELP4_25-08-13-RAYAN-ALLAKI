@@ -38,10 +38,22 @@
             this.txtMoeda = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.TabIndex = 4;
+            // 
+            // txtcodigo
+            // 
+            this.txtcodigo.TabIndex = 9;
+            // 
+            // btnSair
+            // 
+            this.btnSair.TabIndex = 5;
+            // 
             // lblPais
             // 
             this.lblPais.AutoSize = true;
-            this.lblPais.Location = new System.Drawing.Point(132, 6);
+            this.lblPais.Location = new System.Drawing.Point(110, 6);
             this.lblPais.Name = "lblPais";
             this.lblPais.Size = new System.Drawing.Size(27, 13);
             this.lblPais.TabIndex = 10;
@@ -50,7 +62,7 @@
             // lblSigla
             // 
             this.lblSigla.AutoSize = true;
-            this.lblSigla.Location = new System.Drawing.Point(199, 4);
+            this.lblSigla.Location = new System.Drawing.Point(313, 5);
             this.lblSigla.Name = "lblSigla";
             this.lblSigla.Size = new System.Drawing.Size(30, 13);
             this.lblSigla.TabIndex = 11;
@@ -59,7 +71,7 @@
             // lblDdi
             // 
             this.lblDdi.AutoSize = true;
-            this.lblDdi.Location = new System.Drawing.Point(256, 4);
+            this.lblDdi.Location = new System.Drawing.Point(370, 5);
             this.lblDdi.Name = "lblDdi";
             this.lblDdi.Size = new System.Drawing.Size(26, 13);
             this.lblDdi.TabIndex = 12;
@@ -68,7 +80,7 @@
             // lblMoeda
             // 
             this.lblMoeda.AutoSize = true;
-            this.lblMoeda.Location = new System.Drawing.Point(303, 4);
+            this.lblMoeda.Location = new System.Drawing.Point(417, 5);
             this.lblMoeda.Name = "lblMoeda";
             this.lblMoeda.Size = new System.Drawing.Size(40, 13);
             this.lblMoeda.TabIndex = 13;
@@ -76,31 +88,42 @@
             // 
             // txtPais
             // 
+            this.txtPais.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPais.Location = new System.Drawing.Point(113, 20);
+            this.txtPais.MaxLength = 55;
             this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(71, 20);
-            this.txtPais.TabIndex = 14;
+            this.txtPais.Size = new System.Drawing.Size(185, 20);
+            this.txtPais.TabIndex = 0;
+            //this.txtPais.TextChanged += new System.EventHandler(this.txtPais_TextChanged);
             // 
             // txtSigla
             // 
-            this.txtSigla.Location = new System.Drawing.Point(190, 20);
+            this.txtSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSigla.Location = new System.Drawing.Point(304, 21);
+            this.txtSigla.MaxLength = 4;
             this.txtSigla.Name = "txtSigla";
             this.txtSigla.Size = new System.Drawing.Size(48, 20);
-            this.txtSigla.TabIndex = 15;
+            this.txtSigla.TabIndex = 1;
             // 
             // txtDdi
             // 
-            this.txtDdi.Location = new System.Drawing.Point(244, 20);
+            this.txtDdi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDdi.Location = new System.Drawing.Point(358, 21);
+            this.txtDdi.MaxLength = 5;
             this.txtDdi.Name = "txtDdi";
             this.txtDdi.Size = new System.Drawing.Size(47, 20);
-            this.txtDdi.TabIndex = 16;
+            this.txtDdi.TabIndex = 2;
+            this.txtDdi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            //this.txtDdi.TextChanged += new System.EventHandler(this.txtDdi_TextChanged);
             // 
             // txtMoeda
             // 
-            this.txtMoeda.Location = new System.Drawing.Point(297, 21);
+            this.txtMoeda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMoeda.Location = new System.Drawing.Point(411, 22);
+            this.txtMoeda.MaxLength = 3;
             this.txtMoeda.Name = "txtMoeda";
             this.txtMoeda.Size = new System.Drawing.Size(55, 20);
-            this.txtMoeda.TabIndex = 17;
+            this.txtMoeda.TabIndex = 3;
             // 
             // FrmCadPais
             // 

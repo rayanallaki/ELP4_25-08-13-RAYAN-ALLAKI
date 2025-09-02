@@ -36,7 +36,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FrmConsPaises";
             this.Text = "Consulta de Paises";
-            this.Load += new System.EventHandler(this.FrmConsPaises_Load);
+            //this.Load += new System.EventHandler(this.FrmConsPaises_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

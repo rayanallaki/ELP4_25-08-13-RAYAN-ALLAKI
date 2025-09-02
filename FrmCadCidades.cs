@@ -12,39 +12,46 @@ namespace projetoFormsPaisEstadoCidade
     {
         Cidades oCidade;
         Controller aCtrl;
+        frmConsEstados ofrmConsEstados;
         public FrmCadCidades()
         {
             InitializeComponent();
+            ofrmConsEstados = new frmConsEstados();
+            oCidade = new Cidades();
         }
+
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
-        }
-        protected override void Salvar()
+        } 
+        public override void Salvar()
         {
             oCidade.Codigo = Convert.ToInt32(txtcodigo.Text);
             oCidade.Cidade = txtCidade.Text;
             oCidade.DDD =    txtDdd.Text;
         }
-        protected override void CarregaTxt()
+        public override void CarregaTxt()
         {
             this.txtCidade.Text = oCidade.Cidade;
             this.txtDdd.Text =    oCidade.DDD;
             this.txtcodigo.Text = Convert.ToString(oCidade.Codigo);
         }
-        protected override void LimpaTxt()
+        public override void LimpaTxt()
         {
             this.txtcodigo.Text = "0";
             this.txtCidade.Clear();
             this.txtDdd.Clear();
         }
-        protected override void BloqueiaTxt()
+        public override void BloqueiaTxt()
         {
-            this.txtCidade.Enabled = false;
-            this.txtDdd.Enabled =    false;
+            this.txtCidade.Enabled =       false;
+            this.txtDdd.Enabled =          false;
+            this.txtCodigoEstado.Enabled = false;
+            this.txtcodigo.Enabled =       false;
+            this.txtEstado.Enabled =       false;
         }
-        protected override void DesbloqueiaTxt()
+        public override void DesbloqueiaTxt()
         {
             this.txtCidade.Enabled = true;
             this.txtDdd.Enabled =    true;
@@ -54,7 +61,26 @@ namespace projetoFormsPaisEstadoCidade
             if(obj != null)
                 oCidade = (Cidades)obj;
             if (ctrl != null)
-                aCtrl = (Controller)obj;
+                aCtrl = (Controller)ctrl;
+        }
+        public void setFrmConsEstados(Object obj)
+        {
+            if (obj != null)
+            {
+                ofrmConsEstados = (frmConsEstados)obj;
+            }
+            
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string btnSair = ofrmConsEstados.btnSair.Text;
+            ofrmConsEstados.btnSair.Text = "Selecionar";
+            ofrmConsEstados.ConhecaObj(oCidade.OEstado, aCtrl);
+            ofrmConsEstados.ShowDialog();
+            this.txtCodigoEstado.Text = Convert.ToString(oCidade.OEstado.Codigo);
+            this.txtEstado.Text = oCidade.OEstado.Estado.ToString();
+            ofrmConsEstados.btnSair.Text = btnSair;
         }
     }
 }
