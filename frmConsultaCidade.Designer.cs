@@ -28,7 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.colCidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCodigoEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
+            // 
+            // ListV
+            // 
+            this.ListV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colCidade,
+            this.colDDD,
+            this.colCodigoEstado,
+            this.colEstado});
+            // 
+            // colCidade
+            // 
+            this.colCidade.Text = "Cidade";
+            this.colCidade.Width = 200;
+            // 
+            // colDDD
+            // 
+            this.colDDD.Text = "DDD";
+            // 
+            // colCodigoEstado
+            // 
+            this.colCodigoEstado.Text = "Codigo";
+            // 
+            // colEstado
+            // 
+            this.colEstado.Text = "Estado";
+            this.colEstado.Width = 200;
             // 
             // frmConsultaCidade
             // 
@@ -42,5 +72,10 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ColumnHeader colCidade;
+        private System.Windows.Forms.ColumnHeader colDDD;
+        private System.Windows.Forms.ColumnHeader colCodigoEstado;
+        private System.Windows.Forms.ColumnHeader colEstado;
     }
 }

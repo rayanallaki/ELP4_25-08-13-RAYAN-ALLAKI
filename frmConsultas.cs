@@ -32,10 +32,16 @@ namespace projetoFormsPaisEstadoCidade
         {
             Incluir();
         }
+        protected virtual void CarregaLV()
+        { 
+            
+        
+        }
        
         public virtual void setFrmCdastro(object obj)
         { 
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

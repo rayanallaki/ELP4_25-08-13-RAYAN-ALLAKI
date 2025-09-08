@@ -25,8 +25,8 @@ namespace projetoFormsPaisEstadoCidade
         {
             oFrmCadCidades.ConhecaObj(oCidade, aCtrl);
             oFrmCadCidades.LimpaTxt();
-            oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.ShowDialog();
+            this.CarregaLV();
         }
         protected override void Excluir()
         {
@@ -48,6 +48,15 @@ namespace projetoFormsPaisEstadoCidade
             oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.ShowDialog();
+        }
+        protected override void CarregaLV()
+        {
+            ListViewItem item = new ListViewItem(Convert.ToString(oCidade.Codigo));
+            item.SubItems.Add(oCidade.Cidade);
+            item.SubItems.Add(oCidade.DDD);
+            item.SubItems.Add(Convert.ToString(oCidade.OEstado.Codigo));
+            item.SubItems.Add(oCidade.OEstado.Estado);
+            ListV.Items.Add(item);
         }
         protected override void Pesquisar()
         {

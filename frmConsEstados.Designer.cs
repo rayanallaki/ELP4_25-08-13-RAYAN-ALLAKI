@@ -28,7 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.colEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colUF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPais = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCodigoPais = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
+            // 
+            // ListV
+            // 
+            this.ListV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colEstado,
+            this.colUF,
+            this.colCodigoPais,
+            this.colPais});
+            // 
+            // colEstado
+            // 
+            this.colEstado.Text = "Estados";
+            this.colEstado.Width = 200;
+            // 
+            // colUF
+            // 
+            this.colUF.Text = "UF";
+            this.colUF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // colPais
+            // 
+            this.colPais.DisplayIndex = 3;
+            this.colPais.Text = "Pais";
+            this.colPais.Width = 200;
+            // 
+            // colCodigoPais
+            // 
+            this.colCodigoPais.DisplayIndex = 4;
+            this.colCodigoPais.Text = "Codigo Pais";
             // 
             // frmConsEstados
             // 
@@ -43,5 +76,9 @@
         }
 
         #endregion
+        private System.Windows.Forms.ColumnHeader colEstado;
+        private System.Windows.Forms.ColumnHeader colUF;
+        private System.Windows.Forms.ColumnHeader colPais;
+        private System.Windows.Forms.ColumnHeader colCodigoPais;
     }
 }

@@ -32,7 +32,8 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ListV = new System.Windows.Forms.ListView();
+            this.CLCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnSair
@@ -80,21 +81,30 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // listView1
+            // ListV
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 50);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(776, 331);
-            this.listView1.TabIndex = 7;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.ListV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.CLCodigo});
+            this.ListV.FullRowSelect = true;
+            this.ListV.GridLines = true;
+            this.ListV.HideSelection = false;
+            this.ListV.Location = new System.Drawing.Point(12, 50);
+            this.ListV.Name = "ListV";
+            this.ListV.Size = new System.Drawing.Size(776, 331);
+            this.ListV.TabIndex = 7;
+            this.ListV.UseCompatibleStateImageBehavior = false;
+            this.ListV.View = System.Windows.Forms.View.Details;
+            this.ListV.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // CLCodigo
+            // 
+            this.CLCodigo.Text = "Código";
             // 
             // frmConsultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ListV);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
@@ -108,7 +118,7 @@
             this.Controls.SetChildIndex(this.btnAlterar, 0);
             this.Controls.SetChildIndex(this.btnExcluir, 0);
             this.Controls.SetChildIndex(this.btnBuscar, 0);
-            this.Controls.SetChildIndex(this.listView1, 0);
+            this.Controls.SetChildIndex(this.ListV, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +129,7 @@
         private System.Windows.Forms.Button btnExcluir;
         protected System.Windows.Forms.Button btnIncluir;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ListView ListV;
+        private System.Windows.Forms.ColumnHeader CLCodigo;
     }
 }
