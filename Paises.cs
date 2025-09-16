@@ -27,6 +27,10 @@ namespace projetoFormsPaisEstadoCidade
             this.ddi = ddi;
             this.moeda = moeda;
         }
+        public Paises Clone()
+        { 
+            return new Paises(this.codigo, this.datcad, this.ultalt, this.pais, this.sigla, this.ddi, this.moeda);
+        }
         public string Pais
         {
             get => pais;

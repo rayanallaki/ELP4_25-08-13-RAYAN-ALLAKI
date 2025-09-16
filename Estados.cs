@@ -23,6 +23,10 @@ namespace projetoFormsPaisEstadoCidade
             this.uf = uf;
             this.oPais = oPais;
         }
+        public Estados Clone()
+        {
+            return new Estados(this.codigo, this.datcad, this.ultalt, this.estado, this.uf, this.oPais);
+        }
         public string Estado
         {
             get => estado;

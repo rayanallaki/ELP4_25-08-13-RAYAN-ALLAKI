@@ -24,6 +24,10 @@ namespace projetoFormsPaisEstadoCidade
             this.ddd = ddd;
             this.oEstado = oEstado;
         }
+        public Cidades Clone()
+        { 
+            return new Cidades(this.codigo, this.datcad, this.ultalt, this.cidade, this.ddd, this.oEstado);
+        }
         public string Cidade
         {
             get => cidade;
