@@ -14,12 +14,14 @@ namespace projetoFormsPaisEstadoCidade
     {
         Interfaces aInter = new Interfaces();
         Paises oPais = new Paises();
-        Paises oPais1 = new Paises();
+        //Paises oPais1 = new Paises();
         Estados oEstado = new Estados();
-        Estados oEstado1 = new Estados();
+        //Estados oEstado1 = new Estados();
         Cidades oCidade = new Cidades();
-        Cidades oCidade1 = new Cidades();
+        //Cidades oCidade1 = new Cidades();
         Controller aCtrl = new Controller();
+
+        //CtrlPaises aCtrlPaises = new CtrlPaises();
 
         public FrmPrincipal()
         {

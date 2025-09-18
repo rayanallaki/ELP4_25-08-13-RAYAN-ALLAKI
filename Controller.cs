@@ -10,6 +10,11 @@ namespace projetoFormsPaisEstadoCidade
     {
         public Controller()
         { 
+
+        }
+        public virtual void Salvar(object obj)
+        { 
+
         }
     }
 }

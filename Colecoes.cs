@@ -50,11 +50,6 @@ namespace projetoFormsPaisEstadoCidade
         {
             return aLista.Count;
         }
-        public virtual void Imprimir()
-        {
-            foreach (var item in aLista)
-                Console.WriteLine(item);
-        }
         public virtual void Ordenar()
         {
             aLista.Sort();

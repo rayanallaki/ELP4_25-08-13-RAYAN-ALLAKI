@@ -12,14 +12,15 @@ namespace projetoFormsPaisEstadoCidade
     {
         FrmCadPais oFrmCadPais;
         Paises oPais;
-        Controller oCtrl;
+        Controller aCtrl;
+        //CtrlPaises aCtrlPaises;
         public FrmConsPaises()
         {
             InitializeComponent();
         }
         protected override void Incluir()
         {
-            oFrmCadPais.ConhecaObj(oPais, oCtrl);
+            oFrmCadPais.ConhecaObj(oPais, aCtrl);
             oFrmCadPais.LimpaTxt();
             // oFrmCadPais.CarregaTxt();
             oFrmCadPais.ShowDialog();
@@ -28,7 +29,7 @@ namespace projetoFormsPaisEstadoCidade
         protected override void Excluir()
         {
             string aux;
-            oFrmCadPais.ConhecaObj(oPais, oCtrl);
+            oFrmCadPais.ConhecaObj(oPais, aCtrl);
 
             oFrmCadPais.LimpaTxt();
             oFrmCadPais.CarregaTxt();
@@ -42,19 +43,20 @@ namespace projetoFormsPaisEstadoCidade
         protected override void Alterar()
         {
             
-            oFrmCadPais.ConhecaObj(oPais, oCtrl);
+            oFrmCadPais.ConhecaObj(oPais, aCtrl);
             oFrmCadPais.LimpaTxt();
             oFrmCadPais.CarregaTxt();
             oFrmCadPais.ShowDialog(); 
         }
         protected override void CarregaLV()
         {
-            ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
-            item.SubItems.Add(oPais.Pais);
-            item.SubItems.Add(oPais.Sigla);
-            item.SubItems.Add(oPais.Ddi);
-            item.SubItems.Add(oPais.Moeda);
-            ListV.Items.Add(item);
+            
+                ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
+                item.SubItems.Add(oPais.Pais);
+                item.SubItems.Add(oPais.Sigla);
+                item.SubItems.Add(oPais.Ddi);
+                item.SubItems.Add(oPais.Moeda);
+                ListV.Items.Add(item);   
         }
         protected override void Pesquisar()
         {
@@ -74,7 +76,7 @@ namespace projetoFormsPaisEstadoCidade
             }
             if (ctrl != null)
             { 
-                oCtrl = (Controller)ctrl;
+                aCtrl = (Controller)ctrl;
             }
         }
     }

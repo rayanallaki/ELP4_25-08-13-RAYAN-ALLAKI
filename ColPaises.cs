@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,17 +52,6 @@ namespace projetoFormsPaisEstadoCidade
                 }
             }
             return null;
-        }
-        public override void Imprimir()
-        {
-            foreach (var oPais in aLista)
-            {
-                Console.WriteLine($"Pais: {oPais.Pais}");
-                Console.WriteLine($"Sigla: {oPais.Sigla}");
-                Console.WriteLine($"DDI: {oPais.Ddi}");
-                Console.WriteLine($"Moeda: {oPais.Moeda}");
-                Console.WriteLine("---------------------------");
-            }
         }
     }
 }

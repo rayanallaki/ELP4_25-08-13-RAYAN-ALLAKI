@@ -11,6 +11,7 @@ namespace projetoFormsPaisEstadoCidade
     public partial class FrmCadPais : projetoFormsPaisEstadoCidade.FrmCadastros
     {
         Paises oPais;
+        //CtrlPaises aCtrlPaises;
         Controller aCtrl;
         public FrmCadPais()
         {
