@@ -11,8 +11,10 @@ namespace projetoFormsPaisEstadoCidade
     public partial class FrmCadEstados : projetoFormsPaisEstadoCidade.FrmCadastros
     {
         Estados oEstado;
-        Controller aCtrl;
+       // Controller aCtrl;
         //Paises oPais;
+        CtrlEstados aCtrlEstados;
+        CtrlPaises aCtrlPaises;
         FrmConsPaises oFrmConsPaises;
         public FrmCadEstados()
         {
@@ -35,7 +37,7 @@ namespace projetoFormsPaisEstadoCidade
             }
             if (ctrl != null)
             {
-                aCtrl = (Controller)ctrl;
+                aCtrlEstados = (CtrlEstados)ctrl;
             }
         }
         public override void Salvar()
@@ -44,6 +46,10 @@ namespace projetoFormsPaisEstadoCidade
             oEstado.Estado =     txtEstado.Text;
             oEstado.OPais.Pais = txtPais.Text;
             oEstado.UF =         txtUf.Text;
+            if (this.btnSalvar.Text == "Salvar")
+                aCtrlEstados.Salvar(oEstado);
+            else if (this.btnSalvar.Text == "Excluir")
+                aCtrlEstados.Excluir(oEstado);
         }
         public override void CarregaTxt()
         {
@@ -85,11 +91,11 @@ namespace projetoFormsPaisEstadoCidade
         {
             string btnSair = oFrmConsPaises.btnSair.Text;
             oFrmConsPaises.btnSair.Text = "Selecionar";
-            oFrmConsPaises.ConhecaObj(oEstado.OPais, aCtrl);
+            oFrmConsPaises.ConhecaObj(oEstado.OPais, aCtrlPaises);
             oFrmConsPaises.ShowDialog();
             this.txtCodigoPais.Text = Convert.ToString(oEstado.OPais.Codigo);
             this.txtPais.Text = oEstado.OPais.Pais.ToString();
             oFrmConsPaises.btnSair.Text = btnSair; 
         }
-    }
+    } 
 }

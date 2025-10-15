@@ -19,9 +19,11 @@ namespace projetoFormsPaisEstadoCidade
         //Estados oEstado1 = new Estados();
         Cidades oCidade = new Cidades();
         //Cidades oCidade1 = new Cidades();
-        Controller aCtrl = new Controller();
+        //Controller aCtrl = new Controller();
 
-        //CtrlPaises aCtrlPaises = new CtrlPaises();
+        CtrlPaises aCtrlPaises = new CtrlPaises();
+        CtrlEstados aCtrlEstados = new CtrlEstados();
+        CtrlCidades aCtrlCidades = new CtrlCidades();
 
         public FrmPrincipal()
         {
@@ -41,17 +43,17 @@ namespace projetoFormsPaisEstadoCidade
 
         private void paisesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            aInter.PecaPaises(oPais, aCtrl);
+            aInter.PecaPaises(oPais, aCtrlPaises);
         }
 
         private void estadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            aInter.PecaEstados(oEstado, aCtrl);
+            aInter.PecaEstados(oEstado, aCtrlEstados);
         }
 
         private void cidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            aInter.PecaCidade(oCidade, aCtrl);
+            aInter.PecaCidade(oCidade, aCtrlCidades);
         }
     }
 }

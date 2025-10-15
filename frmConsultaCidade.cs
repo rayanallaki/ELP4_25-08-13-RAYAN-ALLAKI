@@ -12,7 +12,7 @@ namespace projetoFormsPaisEstadoCidade
     {
         FrmCadCidades oFrmCadCidades;
         Cidades oCidade;
-        Controller aCtrl;
+        CtrlCidades aCtrlCidades;
         public frmConsultaCidade()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace projetoFormsPaisEstadoCidade
         }
         protected override void Incluir()
         {
-            oFrmCadCidades.ConhecaObj(oCidade, aCtrl);
+            oFrmCadCidades.ConhecaObj(oCidade, aCtrlCidades);
             oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.ShowDialog();
             this.CarregaLV();
@@ -31,7 +31,7 @@ namespace projetoFormsPaisEstadoCidade
         protected override void Excluir()
         {
             string aux;
-            oFrmCadCidades.ConhecaObj(oCidade, aCtrl);
+            oFrmCadCidades.ConhecaObj(oCidade, aCtrlCidades);
 
             oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.CarregaTxt();
@@ -41,22 +41,29 @@ namespace projetoFormsPaisEstadoCidade
             oFrmCadCidades.ShowDialog();
             oFrmCadCidades.DesbloqueiaTxt();
             oFrmCadCidades.btnSalvar.Text = aux;
+            this.CarregaLV();
         }
         protected override void Alterar()
         {
-            oFrmCadCidades.ConhecaObj(oCidade, aCtrl);
+            oFrmCadCidades.ConhecaObj(oCidade, aCtrlCidades);
             oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.ShowDialog();
+            this.CarregaLV();
         }
         protected override void CarregaLV()
         {
-            ListViewItem item = new ListViewItem(Convert.ToString(oCidade.Codigo));
-            item.SubItems.Add(oCidade.Cidade);
-            item.SubItems.Add(oCidade.DDD);
-            item.SubItems.Add(Convert.ToString(oCidade.OEstado.Codigo));
-            item.SubItems.Add(oCidade.OEstado.Estado);
-            ListV.Items.Add(item);
+            ListV.Items.Clear();
+            List<Cidades> aux = aCtrlCidades.TodasCidades();
+            foreach (Cidades cidade in aux)
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(cidade.Codigo));
+                item.SubItems.Add(cidade.Cidade);
+                item.SubItems.Add(cidade.DDD);
+                item.SubItems.Add(Convert.ToString(cidade.OEstado.Codigo));
+                item.SubItems.Add(cidade.OEstado.Estado);
+                ListV.Items.Add(item);
+            }
         }
         protected override void Pesquisar()
         {
@@ -76,7 +83,7 @@ namespace projetoFormsPaisEstadoCidade
             }
             if (ctrl != null)
             {
-                aCtrl = (Controller)ctrl;
+                aCtrlCidades = (CtrlCidades)ctrl;
             }
 
         }

@@ -12,9 +12,11 @@ namespace projetoFormsPaisEstadoCidade
     {
         FrmCadEstados oFrmCadEstados;
         Estados oEstado;
-        Controller aCtrl;
+        CtrlEstados aCtrlEstados;
+        //Controller aCtrl;
         public frmConsEstados()
         {
+            aCtrlEstados = new CtrlEstados();
             InitializeComponent();
         }
 
@@ -23,7 +25,7 @@ namespace projetoFormsPaisEstadoCidade
         }
         protected override void Incluir()
         {
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
+            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.LimpaTxt();
             oFrmCadEstados.ShowDialog();
             this.CarregaLV();
@@ -31,7 +33,7 @@ namespace projetoFormsPaisEstadoCidade
         protected override void Excluir()
         {
             string aux;
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
+            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
 
             oFrmCadEstados.LimpaTxt();
             oFrmCadEstados.CarregaTxt();
@@ -41,22 +43,29 @@ namespace projetoFormsPaisEstadoCidade
             oFrmCadEstados.ShowDialog();
             oFrmCadEstados.DesbloqueiaTxt();
             oFrmCadEstados.btnSalvar.Text = aux;
+            this.CarregaLV();
         }
         protected override void Alterar()
         {
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
+            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.LimpaTxt();
             oFrmCadEstados.CarregaTxt();
             oFrmCadEstados.ShowDialog();
+            this.CarregaLV();
         }
         protected override void CarregaLV()
         {
-            ListViewItem item = new ListViewItem(Convert.ToString(oEstado.Codigo));
-            item.SubItems.Add(oEstado.Estado);
-            item.SubItems.Add(oEstado.UF);
-            item.SubItems.Add(Convert.ToString(oEstado.OPais.Codigo));
-            item.SubItems.Add(oEstado.OPais.Pais);
-            ListV.Items.Add(item);
+            ListV.Items.Clear();
+            List<Estados> aux = aCtrlEstados.TodosEstados();
+            foreach (Estados estado in aux)
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(estado.Codigo));
+                item.SubItems.Add(estado.Estado);
+                item.SubItems.Add(estado.UF);
+                item.SubItems.Add(Convert.ToString(estado.OPais.Codigo));
+                item.SubItems.Add(estado.OPais.Pais);
+                ListV.Items.Add(item);
+            }
         }
         protected override void Pesquisar()
         {
@@ -73,7 +82,7 @@ namespace projetoFormsPaisEstadoCidade
             if (obj != null)
                 oEstado = (Estados)obj;
             if (ctrl != null)
-                aCtrl = (Controller)ctrl;
+                aCtrlEstados = (CtrlEstados)ctrl;
         }
     }
 }

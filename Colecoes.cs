@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projetoFormsPaisEstadoCidade
 {
-    public class Colecoes<T>
+    internal class Colecoes<T>
     {
         protected List<T> aLista;
 
@@ -27,17 +27,21 @@ namespace projetoFormsPaisEstadoCidade
         { 
             return aLista.IndexOf(item);
         }
+        public virtual int Tamanho()
+        {
+            return aLista.Count();
+        }
         public virtual T Acessar(int ind)
         {
-            if (ind >= 0 && ind < aLista.Count)
-            { 
+            if (ind >= 0 && ind < aLista.Count())
+            {
                 return aLista[ind];
             }
             throw new IndexOutOfRangeException("Indice fora do intervalo da lista");
         }
         public virtual void Atualizar(int ind, T item)
         {
-            if (ind >= 0 && ind < aLista.Count)
+            if (ind >= 0 && ind < aLista.Count())
             {
                 aLista[ind] = item;
             }
@@ -46,13 +50,18 @@ namespace projetoFormsPaisEstadoCidade
                 throw new IndexOutOfRangeException("Indice fora do intervalo da lista");
             }
         }
-        public virtual int Tamanho()
+        public virtual void Impimir()
         {
-            return aLista.Count;
+            foreach (var item in aLista)
+                Console.WriteLine(item);
         }
         public virtual void Ordenar()
         {
             aLista.Sort();
+        }
+        public virtual List<T> RetornaLista()
+        {
+            return aLista;
         }
     }
 }

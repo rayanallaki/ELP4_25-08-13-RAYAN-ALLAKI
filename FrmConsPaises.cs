@@ -12,15 +12,16 @@ namespace projetoFormsPaisEstadoCidade
     {
         FrmCadPais oFrmCadPais;
         Paises oPais;
-        Controller aCtrl;
-        //CtrlPaises aCtrlPaises;
+        //Controller aCtrl;
+        CtrlPaises aCtrlPaises;
         public FrmConsPaises()
         {
+            aCtrlPaises = new CtrlPaises();
             InitializeComponent();
         }
         protected override void Incluir()
         {
-            oFrmCadPais.ConhecaObj(oPais, aCtrl);
+            oFrmCadPais.ConhecaObj(oPais, aCtrlPaises);
             oFrmCadPais.LimpaTxt();
             // oFrmCadPais.CarregaTxt();
             oFrmCadPais.ShowDialog();
@@ -29,7 +30,7 @@ namespace projetoFormsPaisEstadoCidade
         protected override void Excluir()
         {
             string aux;
-            oFrmCadPais.ConhecaObj(oPais, aCtrl);
+            oFrmCadPais.ConhecaObj(oPais, aCtrlPaises);
 
             oFrmCadPais.LimpaTxt();
             oFrmCadPais.CarregaTxt();
@@ -39,24 +40,30 @@ namespace projetoFormsPaisEstadoCidade
             oFrmCadPais.ShowDialog();
             oFrmCadPais.DesbloqueiaTxt();
             oFrmCadPais.btnSalvar.Text = aux;
+            this.CarregaLV();
         }
         protected override void Alterar()
         {
             
-            oFrmCadPais.ConhecaObj(oPais, aCtrl);
+            oFrmCadPais.ConhecaObj(oPais, aCtrlPaises);
             oFrmCadPais.LimpaTxt();
             oFrmCadPais.CarregaTxt();
-            oFrmCadPais.ShowDialog(); 
+            oFrmCadPais.ShowDialog();
+            this.CarregaLV();
         }
         protected override void CarregaLV()
         {
-            
-                ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
-                item.SubItems.Add(oPais.Pais);
-                item.SubItems.Add(oPais.Sigla);
-                item.SubItems.Add(oPais.Ddi);
-                item.SubItems.Add(oPais.Moeda);
-                ListV.Items.Add(item);   
+            ListV.Items.Clear();
+            List<Paises> aux = aCtrlPaises.TodosPaises();
+            foreach (Paises pais in aux) 
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(pais.Codigo));
+                item.SubItems.Add(pais.Pais);
+                item.SubItems.Add(pais.Sigla);
+                item.SubItems.Add(pais.Ddi);
+                item.SubItems.Add(pais.Moeda);
+                ListV.Items.Add(item);
+            }
         }
         protected override void Pesquisar()
         {
@@ -74,10 +81,10 @@ namespace projetoFormsPaisEstadoCidade
             {
                 oPais = (Paises)obj;
             }
-            if (ctrl != null)
+            if (ctrl != null) 
             { 
-                aCtrl = (Controller)ctrl;
-            }
+                aCtrlPaises = (CtrlPaises)ctrl;
+            } 
         }
     }
 }

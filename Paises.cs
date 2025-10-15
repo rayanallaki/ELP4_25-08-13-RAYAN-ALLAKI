@@ -52,6 +52,16 @@ namespace projetoFormsPaisEstadoCidade
             set => moeda = value;
         }
 
+        //public override bool Equals(object obj)
+        //{
+           // if (obj is Paises outro)
+              //  return this.Codigo == outro.Codigo;
+            //return false;
+        //}
 
+        //public override int GetHashCode()
+        //{
+          // return this.Codigo.GetHashCode();
+        //}
     }
 }

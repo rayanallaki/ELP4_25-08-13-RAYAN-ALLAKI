@@ -11,7 +11,9 @@ namespace projetoFormsPaisEstadoCidade
     public partial class FrmCadCidades : projetoFormsPaisEstadoCidade.FrmCadastros
     {
         Cidades oCidade;
-        Controller aCtrl;
+        //Controller aCtrl;
+        CtrlCidades aCtrlCidades;
+        CtrlEstados aCtrlEstados;
         frmConsEstados ofrmConsEstados;
         public FrmCadCidades()
         {
@@ -30,6 +32,10 @@ namespace projetoFormsPaisEstadoCidade
             oCidade.Codigo = Convert.ToInt32(txtcodigo.Text);
             oCidade.Cidade = txtCidade.Text;
             oCidade.DDD =    txtDdd.Text;
+            if (this.btnSalvar.Text == "Salvar")
+                aCtrlCidades.Salvar(oCidade);
+            else if (this.btnSalvar.Text == "Excluir")
+                aCtrlCidades.Excluir(oCidade);
         }
         public override void CarregaTxt()
         {
@@ -61,7 +67,7 @@ namespace projetoFormsPaisEstadoCidade
             if(obj != null)
                 oCidade = (Cidades)obj;
             if (ctrl != null)
-                aCtrl = (Controller)ctrl;
+                aCtrlCidades = (CtrlCidades)ctrl;
         }
         public void setFrmConsEstados(Object obj)
         {
@@ -76,7 +82,7 @@ namespace projetoFormsPaisEstadoCidade
         {
             string btnSair = ofrmConsEstados.btnSair.Text;
             ofrmConsEstados.btnSair.Text = "Selecionar";
-            ofrmConsEstados.ConhecaObj(oCidade.OEstado, aCtrl);
+            ofrmConsEstados.ConhecaObj(oCidade.OEstado, aCtrlEstados);
             ofrmConsEstados.ShowDialog();
             this.txtCodigoEstado.Text = Convert.ToString(oCidade.OEstado.Codigo);
             this.txtEstado.Text = oCidade.OEstado.Estado.ToString();

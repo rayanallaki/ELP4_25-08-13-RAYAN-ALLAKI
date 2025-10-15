@@ -20,6 +20,9 @@ namespace projetoFormsPaisEstadoCidade
             Salvar();
             Sair();
         }
+        public virtual void setFrmCdastro(object obj)
+        {
+        }
         public virtual void Salvar()
         { 
         }

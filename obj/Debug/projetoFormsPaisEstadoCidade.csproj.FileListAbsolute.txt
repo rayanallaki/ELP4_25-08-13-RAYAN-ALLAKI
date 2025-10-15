@@ -67,3 +67,5 @@ C:\Users\Hakim Allaki\source\repos\projetoFormsPaisEstadoCidade\projetoFormsPais
 C:\Users\Hakim Allaki\source\repos\projetoFormsPaisEstadoCidade\projetoFormsPaisEstadoCidade\bin\Debug\System.ValueTuple.xml
 C:\Users\Hakim Allaki\source\repos\projetoFormsPaisEstadoCidade\projetoFormsPaisEstadoCidade\bin\Debug\ZString.xml
 C:\Users\Hakim Allaki\source\repos\projetoFormsPaisEstadoCidade\projetoFormsPaisEstadoCidade\obj\Debug\projetoF.CC93A5A5.Up2Date
+C:\Users\Hakim Allaki\source\repos\projetoFormsPaisEstadoCidade\projetoFormsPaisEstadoCidade\bin\Debug\ELP4-RAYAN.mdf
+C:\Users\Hakim Allaki\source\repos\projetoFormsPaisEstadoCidade\projetoFormsPaisEstadoCidade\bin\Debug\ELP4-RAYAN_log.ldf

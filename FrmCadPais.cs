@@ -11,23 +11,24 @@ namespace projetoFormsPaisEstadoCidade
     public partial class FrmCadPais : projetoFormsPaisEstadoCidade.FrmCadastros
     {
         Paises oPais;
-        //CtrlPaises aCtrlPaises;
-        Controller aCtrl;
+        CtrlPaises aCtrlPaises;
+        //Controller aCtrl;
         public FrmCadPais()
         {
+            aCtrlPaises = new CtrlPaises();
             InitializeComponent();
         }
         public override void Salvar()
         {
-            //if (MessageDlg("Confirma? S/N") == "S")
-            {
-                oPais.Codigo = Convert.ToInt32(txtcodigo.Text);
-                oPais.Pais =   txtPais.Text;
-                oPais.Sigla =  txtSigla.Text;
-                oPais.Ddi =    txtDdi.Text;
-                oPais.Moeda =  txtMoeda.Text;
-            }
-            
+            oPais.Codigo = Convert.ToInt32(txtcodigo.Text);
+            oPais.Pais =   txtPais.Text;
+            oPais.Sigla =  txtSigla.Text;
+            oPais.Ddi =    txtDdi.Text;
+            oPais.Moeda =  txtMoeda.Text;
+            if (this.btnSalvar.Text == "Salvar")
+                aCtrlPaises.Salvar(oPais);
+            else if (this.btnSalvar.Text == "Excluir")
+                aCtrlPaises.Excluir(oPais);
         }
         public override void CarregaTxt()
         {
@@ -65,7 +66,7 @@ namespace projetoFormsPaisEstadoCidade
             if (obj != null) 
                 oPais = (Paises)obj;
             if (ctrl != null)
-                aCtrl = (Controller)ctrl;
+                aCtrlPaises = (CtrlPaises)ctrl;
         }
     }
 }
