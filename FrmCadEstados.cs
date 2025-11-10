@@ -11,10 +11,8 @@ namespace projetoFormsPaisEstadoCidade
     public partial class FrmCadEstados : projetoFormsPaisEstadoCidade.FrmCadastros
     {
         Estados oEstado;
-       // Controller aCtrl;
-        //Paises oPais;
+        //Controller aCtrl;
         CtrlEstados aCtrlEstados;
-        CtrlPaises aCtrlPaises;
         FrmConsPaises oFrmConsPaises;
         public FrmCadEstados()
         {
@@ -43,20 +41,21 @@ namespace projetoFormsPaisEstadoCidade
         public override void Salvar()
         {
             oEstado.Codigo = Convert.ToInt32(txtcodigo.Text);
-            oEstado.Estado =     txtEstado.Text;
+            oEstado.Estado = txtEstado.Text;
             oEstado.OPais.Pais = txtPais.Text;
-            oEstado.UF =         txtUf.Text;
+            oEstado.OPais.Codigo = Convert.ToInt32(txtCodigoPais.Text);
+            oEstado.UF = txtUf.Text;
             if (this.btnSalvar.Text == "Salvar")
-                aCtrlEstados.Salvar(oEstado);
+                MessageBox.Show(aCtrlEstados.Salvar(oEstado.Clone()));
             else if (this.btnSalvar.Text == "Excluir")
-                aCtrlEstados.Excluir(oEstado);
+                MessageBox.Show(aCtrlEstados.Excluir(oEstado.Clone()));
         }
         public override void CarregaTxt()
         {
             this.txtcodigo.Text = Convert.ToString(oEstado.Codigo);
             this.txtEstado.Text = oEstado.Estado;
-            this.txtPais.Text =   oEstado.OPais.Pais;
-            this.txtUf.Text =     oEstado.UF;
+            this.txtPais.Text = oEstado.OPais.Pais;
+            this.txtUf.Text = oEstado.UF;
         }
         public override void LimpaTxt()
         {
@@ -69,7 +68,7 @@ namespace projetoFormsPaisEstadoCidade
         {
             this.txtPais.Enabled = false;
             this.txtEstado.Enabled = false;
-            this.txtUf.Enabled =     false;
+            this.txtUf.Enabled = false;
             this.txtCodigoPais.Enabled = false;
             this.txtcodigo.Enabled = false;
         }
@@ -77,10 +76,10 @@ namespace projetoFormsPaisEstadoCidade
         {
             this.txtPais.Enabled = true;
             this.txtEstado.Enabled = true;
-            this.txtUf.Enabled =     true;
+            this.txtUf.Enabled = true;
         }
-        
-        
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -91,11 +90,12 @@ namespace projetoFormsPaisEstadoCidade
         {
             string btnSair = oFrmConsPaises.btnSair.Text;
             oFrmConsPaises.btnSair.Text = "Selecionar";
-            oFrmConsPaises.ConhecaObj(oEstado.OPais, aCtrlPaises);
+            oFrmConsPaises.ConhecaObj(oEstado.OPais, aCtrlEstados.ACtrlPaises);
+            //Paises oPais = new Paises();
             oFrmConsPaises.ShowDialog();
             this.txtCodigoPais.Text = Convert.ToString(oEstado.OPais.Codigo);
             this.txtPais.Text = oEstado.OPais.Pais.ToString();
-            oFrmConsPaises.btnSair.Text = btnSair; 
+            oFrmConsPaises.btnSair.Text = btnSair;
         }
-    } 
+    }
 }

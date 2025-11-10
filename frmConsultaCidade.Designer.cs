@@ -41,6 +41,7 @@
             this.colDDD,
             this.colCodigoEstado,
             this.colEstado});
+            this.ListV.SelectedIndexChanged += new System.EventHandler(this.ListV_SelectedIndexChanged);
             // 
             // colCidade
             // 

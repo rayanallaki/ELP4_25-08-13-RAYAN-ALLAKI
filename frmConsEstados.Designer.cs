@@ -41,6 +41,11 @@
             this.colUF,
             this.colCodigoPais,
             this.colPais});
+            this.ListV.SelectedIndexChanged += new System.EventHandler(this.ListV_SelectedIndexChanged);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // colEstado
             // 
@@ -54,13 +59,11 @@
             // 
             // colPais
             // 
-            this.colPais.DisplayIndex = 3;
             this.colPais.Text = "Pais";
             this.colPais.Width = 200;
             // 
             // colCodigoPais
             // 
-            this.colCodigoPais.DisplayIndex = 4;
             this.colCodigoPais.Text = "Codigo Pais";
             // 
             // frmConsEstados

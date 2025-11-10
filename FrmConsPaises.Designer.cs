@@ -41,6 +41,11 @@
             this.colSigla,
             this.colDDI,
             this.ColMoeda});
+            this.ListV.SelectedIndexChanged += new System.EventHandler(this.ListV_SelectedIndexChanged);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // colPais
             // 

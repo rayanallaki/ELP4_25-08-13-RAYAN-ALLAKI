@@ -32,10 +32,11 @@ namespace projetoFormsPaisEstadoCidade
             oCidade.Codigo = Convert.ToInt32(txtcodigo.Text);
             oCidade.Cidade = txtCidade.Text;
             oCidade.DDD =    txtDdd.Text;
+            oCidade.OEstado.Codigo = Convert.ToInt32(txtCodigoEstado.Text);
             if (this.btnSalvar.Text == "Salvar")
-                aCtrlCidades.Salvar(oCidade);
+                MessageBox.Show(aCtrlCidades.Salvar(oCidade.Clone()));
             else if (this.btnSalvar.Text == "Excluir")
-                aCtrlCidades.Excluir(oCidade);
+                MessageBox.Show(aCtrlCidades.Excluir(oCidade.Clone()));
         }
         public override void CarregaTxt()
         {
@@ -82,7 +83,7 @@ namespace projetoFormsPaisEstadoCidade
         {
             string btnSair = ofrmConsEstados.btnSair.Text;
             ofrmConsEstados.btnSair.Text = "Selecionar";
-            ofrmConsEstados.ConhecaObj(oCidade.OEstado, aCtrlEstados);
+            ofrmConsEstados.ConhecaObj(oCidade.OEstado, aCtrlCidades.ACtrlEstados);
             ofrmConsEstados.ShowDialog();
             this.txtCodigoEstado.Text = Convert.ToString(oCidade.OEstado.Codigo);
             this.txtEstado.Text = oCidade.OEstado.Estado.ToString();

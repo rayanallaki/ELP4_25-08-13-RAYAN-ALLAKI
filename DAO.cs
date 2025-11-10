@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace projetoFormsPaisEstadoCidade
 {
-    internal class DAO
+    internal class DAO<T>
     {
         protected SqlConnection cnn;
 
@@ -23,15 +23,15 @@ namespace projetoFormsPaisEstadoCidade
         {
             return null;
         }
-        public virtual List<Object> Listar()
+        public virtual List<T> Listar()
         {
             return null;
         }
-        public virtual Object CarregaObj(int chave)
+        public virtual string CarregaObj(object obj)
         {
             return null;
         }
-        public virtual List<Object> Pesquisar(string chave)
+        public virtual List<T> Pesquisar(string obj)
         {
             return null;
         }

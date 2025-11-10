@@ -26,9 +26,11 @@ namespace projetoFormsPaisEstadoCidade
             oPais.Ddi =    txtDdi.Text;
             oPais.Moeda =  txtMoeda.Text;
             if (this.btnSalvar.Text == "Salvar")
-                aCtrlPaises.Salvar(oPais);
+                MessageBox.Show(aCtrlPaises.Salvar(oPais.Clone()));
+
             else if (this.btnSalvar.Text == "Excluir")
-                aCtrlPaises.Excluir(oPais);
+                MessageBox.Show(aCtrlPaises.Excluir(oPais.Clone()));
+
         }
         public override void CarregaTxt()
         {
